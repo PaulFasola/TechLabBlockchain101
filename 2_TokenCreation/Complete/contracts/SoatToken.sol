@@ -1,4 +1,4 @@
-pragma solidity 0.4.18;
+pragma solidity 0.4.23;
 import "../node_modules/zeppelin-solidity/contracts/math/SafeMath.sol";
 
 
@@ -31,13 +31,13 @@ contract SoatToken {
      *     that deployed it. The fixed supply is 1 billion tokens with up to 18
      *     decimal places.
      */
-    function SoatToken() public {
+    constructor() public {
         symbol = "STK";
         name = "SoatToken";
         decimals = 18;
         totalSupply = 13370000 * 10 ** uint(decimals);
         balances[msg.sender] = totalSupply;
-        Transfer(address(0), msg.sender, totalSupply);
+        emit Transfer(address(0), msg.sender, totalSupply);
     }
 
     /**
@@ -68,7 +68,7 @@ contract SoatToken {
     function transfer(address _to, uint _value) public returns (bool success) {
         balances[msg.sender] = balances[msg.sender].sub(_value);
         balances[_to] = balances[_to].add(_value);
-        Transfer(msg.sender, _to, _value);
+        emit Transfer(msg.sender, _to, _value);
         return true;
     }
 
@@ -89,7 +89,7 @@ contract SoatToken {
         balances[_from] = balances[_from].sub(_value);
         allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
         balances[_to] = balances[_to].add(_value);
-        Transfer(_from, _to, _value);
+        emit Transfer(_from, _to, _value);
         return true;
     }
 
@@ -104,7 +104,7 @@ contract SoatToken {
         returns (bool success)
     {
         allowed[msg.sender][_spender] = _value;
-        Approval(msg.sender, _spender, _value);
+        emit Approval(msg.sender, _spender, _value);
         return true;
     }
 
