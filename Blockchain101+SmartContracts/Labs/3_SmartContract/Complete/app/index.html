@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>TechLab // Crypto-Roulette</title>
+
+  <link href="./bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="./noty/noty.css" rel="stylesheet" type="text/css">
+  <link href="./noty/themes/mint.css" rel="stylesheet" type="text/css">
+  <link href="./css/app.css" rel="stylesheet" type="text/css">
+</head> 
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">TechLab // Crypto-Roulette</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <span id="player"></span>
+          </li>
+          <li class="nav-item active">
+            &nbsp;
+          </li>
+          <li class="nav-item">
+            <span id="balance"></span>
+            <span>ETH</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="spinner">
+          <div class="ball">
+            <span></span>
+          </div>
+          <div class="platebg"></div>
+          <div class="platetop"></div>
+          <div id="toppart" class="topnodebox">
+            <div class="silvernode"></div>
+            <div class="topnode silverbg"></div>
+            <span class="top silverbg"></span>
+            <span class="right silverbg"></span>
+            <span class="down silverbg"></span>
+            <span class="left silverbg"></span>
+          </div>
+          <div id="rcircle" class="pieContainer">
+            <div class="pieBackground"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls col-md-5">
+        <h1>Crypto Roulette</h1>
+        <h3>Make a new bet right now !</h3>
+        <form>
+          Type/number:
+          <select name="type" id="new_bet_type">
+            <option value="even">Even</option>
+            <option value="odd">Odd</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            <option value="32">32</option>
+            <option value="33">33</option>
+            <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+          </select>
+          Value:
+          <input id="new_bet_value" type="number" step="1" value="1" min="1" max="10">
+          <button type="button" id="newBet">Bet</button>
+        </form>
+        <h3 id="current_bet">Current bets</h3>
+        <table class="table-fill">
+          <thead>
+            <tr>
+              <th class="text-center">#</th>
+              <th class="text-center">Player</th>
+              <th class="text-center">Type/number</th>
+              <th class="text-center">Bet amount</th>
+            </tr>
+          </thead>
+          <tbody id="bets" class="table-hover">
+            <tr id="no-bets">
+              <td colspan="4" class="text-center">You have no bet for this round !</td>
+            </tr>
+          </tbody>
+        </table>
+        <span id="status"></span>
+        <div>
+          <h3 id="outcome_section" class="invisible">Last roulette outcome:
+            <span id="outcome_number"></span>
+          </h3>
+        </div>
+        <button type="button" id="spin">Spin!</button>
+        <button type="button" id="remove-bets-history">Remove bet history</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="col-md-12">
+        <table class="table-fill">
+            <thead>
+              <tr>
+                <th class="text-center">Tx #</th>
+                <th class="text-center">Date</th>
+                <th class="text-center">Player</th>
+                <th class="text-center">Result</th>
+                <th class="text-center">Won amount (cumulative)</th>
+              </tr>
+            </thead>
+            <tbody id="oldbets" class="table-hover">
+              <tr id="no-old-bets">
+                <td colspan="5" class="text-center">There is no archived spining entries/bets.</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+
+  <script src="./jquery/jquery.min.js"></script>
+  <script src="./bootstrap/js/bootstrap.min.js"></script>
+  <script src="./keyframes/jquery.keyframes.min.js"></script>
+  <script src="./noty/noty.min.js"></script>
+  <script src="./js/truffle-contract.min.js"></script>
+  <script src="./js/roulette.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>

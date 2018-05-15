@@ -1,0 +1,18 @@
+{
+  "name": "hol-tokencreation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node helpers/router.js",
+    "test": "truffle test ./test/token.test.js && node ./node_modules/mocha/bin/mocha ./test/helpers.test.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.15.1",
+    "mocha": "^5.1.0",
+    "readline-sync": "^1.4.9",
+    "zeppelin-solidity": "^1.8.0"
+  }
+}

@@ -1,1 +1,1 @@
-# TechLabBlockchain101
+# Techlabs
