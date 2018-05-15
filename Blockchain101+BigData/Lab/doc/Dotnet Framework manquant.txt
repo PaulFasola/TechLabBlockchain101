@@ -1,0 +1,6 @@
+Installez la dernière version du framework sur le site de Microsoft.
+
+Et entrer :
+
+npm install --global --production windows-build-tools
+npm install --global node-gyp

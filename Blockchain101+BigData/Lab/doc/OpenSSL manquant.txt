@@ -1,0 +1,9 @@
+Téléchargez OpenSSL
+
+Win32
+https://slproweb.com/products/Win32OpenSSL.html
+
+Win64
+http://www.indyproject.org/Sockets/fpc/OpenSSLforWin64.en.aspx
+Placer la librairie ici :
+C:\OpenSSL-Win64\lib\libeay32.lib

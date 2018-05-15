@@ -1,0 +1,19 @@
+{
+  "name": "bigdatabcdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/wizard.js",
+    "dev": "node ./src/training.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bigchaindb-driver": "^4.0.0",
+    "chalk": "^2.4.1",
+    "faker": "^4.1.0",
+    "open": "0.0.5",
+    "uuid": "^3.2.1"
+  }
+}
