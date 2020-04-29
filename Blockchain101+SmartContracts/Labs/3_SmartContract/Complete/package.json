@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^4.1.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jquerykeyframes": "^1.0.3",
     "live-server": "^1.2.0",
     "noty": "^3.2.0-beta"
